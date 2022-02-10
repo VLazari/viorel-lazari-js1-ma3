@@ -6,7 +6,8 @@
 
 .container {
 	padding: 10px;
-	/* background-color: rgb(212, 207, 207); */
+	margin: 0 auto;
+	width: 80%;
 }
 
 .games {
@@ -14,15 +15,11 @@
 	justify-content: space-between;
 	align-items: stretch;
 	border: 0.5px solid gray;
-	margin: 5px;
-	/* border-color: gray; */
 }
 
 .game {
 	padding: 10px;
 	width: 100%;
-	border: 0.5px solid gray;
-	/* border-color: whitesmoke; */
 }
 
 .game:first-child {
@@ -30,25 +27,61 @@
 }
 
 span {
-	font-style: normal;
-	font-weight: bold;
+	font: normal bold 16px "Roboto", sans-serif;
+	text-transform: uppercase;
 }
 
-.loader {
-	border: 16px solid #f3f3f3; /* Light grey */
-	border-top: 16px solid #3498db; /* Blue */
+/* .loader {
+	border: 16px solid #f3f3f3; 
+	border-top: 16px solid #3498db;
 	border-radius: 50%;
-	width: 120px;
-	height: 120px;
+	width: 50px;
+	height: 50px;
 	animation: spin 2s linear infinite;
 	margin: 50px auto;
+} */
+
+.load {
+	text-align: center;
+	font: bold 30px "Roboto", sans-serif;
+	margin: 50px auto;
+	color: #2685bf;
 }
 
-@keyframes spin {
+.load > * {
+	background-color: #2685bf;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin: 0 3px;
+	animation: loading 3s linear infinite;
+}
+
+.load :nth-child(1) {
+	animation-delay: 0.1s;
+}
+
+.load :nth-child(2) {
+	animation-delay: 0.5s;
+}
+
+.load :nth-child(3) {
+	animation-delay: 0.8s;
+}
+
+@keyframes loading {
 	0% {
-		transform: rotate(0deg);
+		opacity: 100%;
+	}
+	50% {
+		opacity: 0;
 	}
 	100% {
-		transform: rotate(360deg);
+		opacity: 0;
 	}
+}
+
+.altLine {
+	background-color: #94d7f2;
 }

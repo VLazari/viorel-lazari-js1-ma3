@@ -1,6 +1,6 @@
 const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=8b0ca50b7e62487aa4bb514975ab7e6f";
 const container = document.querySelector(".container");
-const loader = document.querySelector(".loader");
+const loader = document.querySelector(".load");
 
 async function getGames() {
 	try {
@@ -15,10 +15,14 @@ async function getGames() {
 			if (isNaN(Number(rating)) || !rating) {
 				rating = "not rated";
 			}
+			let gameClass = "game";
+			if (i % 2 === 0) {
+				gameClass = "game altLine";
+			}
 			container.innerHTML += `<div class="games">
-                                <div class="game">${gameList[i].name}</div> 
-                                <div class="game">${rating}</div>
-                                <div class="game">${gameList[i].tags.length}</div>
+                                <div class="${gameClass}">${gameList[i].name}</div> 
+                                <div class="${gameClass}">${rating}</div>
+                                <div class="${gameClass}">${gameList[i].tags.length}</div>
                               </div>`;
 		}
 		console.log("success");
